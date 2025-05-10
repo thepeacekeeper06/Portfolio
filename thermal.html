@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Thermal Heating Jacket | Abhay Ajith</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        /* Base styles and variables */
+        :root {
+            --primary: #FF3C00;
+            --primary-dark: #d93300;
+            --dark: #222222;
+            --text: #333333;
+            --text-light: #666666;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --card-shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: var(--dark);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        
+        .back-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            min-height: 500px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            background-color: var(--dark);
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .hero-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 60, 0, 0.3);
+        }
+        
+        /* Breadcrumbs */
+        .breadcrumbs {
+            padding: 15px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .breadcrumbs-list {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .breadcrumbs-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .breadcrumbs-item:not(:last-child)::after {
+            content: '/';
+            margin: 0 8px;
+            color: var(--text-light);
+        }
+        
+        .breadcrumbs-item a:hover {
+            color: var(--primary);
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            padding: 60px 0;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: -20px;
+            margin-bottom: 30px;
+        }
+        
+        /* 3D Model Viewer Container */
+        .model-container {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            position: relative;
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .responsive-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Responsive images and galleries */
+        .responsive-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), transparent);
+            color: white;
+            padding: 15px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Specs container with columns */
+        .specs-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .specs-column {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .specs-column h3 {
+            margin-top: 0;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .spec-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .spec-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .spec-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Responsive tables */
+        .responsive-table {
+            overflow-x: auto;
+            margin: 30px 0;
+            box-shadow: var(--card-shadow);
+            border-radius: 8px;
+        }
+        
+        .responsive-table table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px; /* Ensures table doesn't get too compressed */
+        }
+        
+        .responsive-table th, 
+        .responsive-table td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .responsive-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        
+        .responsive-table tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+        
+        .responsive-table .total-row {
+            background-color: var(--light-gray);
+            font-weight: 600;
+        }
+        
+        /* Timeline styling */
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            height: calc(100% - 10px);
+            width: 2px;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-point {
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 3px solid white;
+            z-index: 1;
+        }
+        
+        .timeline-content h3 {
+            margin: 0 0 8px 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .timeline-content p {
+            margin: 0;
+        }
+        
+        /* Feature grids */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .feature-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-item h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.2rem;
+        }
+        
+        .feature-item p {
+            margin: 0;
+        }
+        
+        .feature-grid-large {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-item-large {
+            background-color: var(--light-gray);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .feature-item-large:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .feature-icon-large {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-item-large h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+        
+        /* Applications grid */
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .application-item {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 3px solid var(--primary);
+        }
+        
+        .application-item h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .application-item p {
+            margin: 0;
+        }
+        
+        /* Improved video container for portrait video */
+        .responsive-video-container {
+            width: 100%;
+            max-width: 450px;
+            margin: 30px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .responsive-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 9/16; /* Portrait aspect ratio */
+            object-fit: contain;
+        }
+        
+        .video-caption {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--text-light);
+        }
+        
+        /* Tags */
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 30px 0;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: var(--light-gray);
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 100px;
+            transition: var(--transition);
+        }
+        
+        .tag:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        /* Test summary */
+        .test-summary {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-left: 3px solid var(--primary);
+            border-radius: 4px;
+        }
+        
+        /* Future development */
+        .future-development {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .future-development h3 {
+            margin-top: 0;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .future-development ul {
+            padding-left: 20px;
+            list-style-type: disc;
+            margin-bottom: 0;
+        }
+        
+        .future-development li {
+            margin-bottom: 8px;
+        }
+        
+        .future-development li:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 90;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary-dark);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .specs-container,
+            .feature-grid-large,
+            .applications-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .responsive-gallery,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-image {
+                aspect-ratio: 4/3;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .timeline {
+                padding-left: 25px;
+            }
+            
+            .timeline-point {
+                left: -25px;
+                width: 14px;
+                height: 14px;
+            }
+            
+            .responsive-video-container {
+                max-width: 300px; /* Smaller width on mobile for portrait video */
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .main-content {
+                padding: 40px 0;
+            }
+            
+            .section {
+                margin-bottom: 40px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .feature-icon-large {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <div class="logo-icon"></div>
+                </a>
+                <nav class="nav-links">
+                    <a href="#overview" class="nav-link">Projects</a>
+                    <a href="#circuit-design" class="nav-link">Circuit</a>
+                    <a href="#demonstration" class="nav-link">Demo</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="thermal_banner.png" alt="Smart Thermal Jacket" class="hero-bg">
+        <div class="hero-content">
+            <h1 class="hero-title">Smart Thermal Heating Jacket</h1>
+            <p class="hero-subtitle">A breakthrough in wearable technology combining innovative heating elements with intelligent temperature control</p>
+            <a href="#overview" class="hero-btn">Learn More</a>
+        </div>
+    </section>
+    
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ul class="breadcrumbs-list">
+                <li class="breadcrumbs-item"><a href="#">Home</a></li>
+                <li class="breadcrumbs-item"><a href="#">Projects</a></li>
+                <li class="breadcrumbs-item">Smart Thermal Heating Jacket</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Overview Section -->
+            <section class="section" id="overview">
+                <h2 class="section-title">Project Overview</h2>
+                <p>The Smart Thermal Heating Jacket represents a breakthrough in wearable technology by combining innovative heating elements with intelligent temperature control. This USB-powered puffer vest integrates carbon fiber heating pads, automated temperature regulation, and smartphone connectivity to provide personalized thermal comfort in cold environments.</p>
+                
+                <!-- Responsive gallery images -->
+                <div class="responsive-gallery">
+                    <div class="gallery-item">
+                        <img src="thermal_jacket.png" alt="Front view of the smart thermal puffer vest" class="gallery-image">
+                        <p class="gallery-caption">Front view of the smart thermal puffer vest with smartphone control</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="thermal_layer.png" alt="Internal heating components and control circuit" class="gallery-image">
+                        <p class="gallery-caption">Internal heating components and control circuit</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Technical Design -->
+            <section class="section" id="technical-design">
+                <h2 class="section-title">Technical Design</h2>
+                
+                <!-- 3D Model Viewer Container -->
+                <div class="model-container">
+                    <iframe src="https://my.spline.design/untitled-xVBphKmPBVNYNxUHyi2bvB5O/" frameborder="0" class="responsive-iframe"></iframe>
+                </div>
+                
+                <div class="specs-container">
+                    <div class="specs-column">
+                        <h3>Key Technical Specifications</h3>
+                        <ul class="spec-list">
+                            <li><strong>Microcontroller:</strong> NodeMCU ESP32</li>
+                            <li><strong>Temperature Sensor:</strong> DS18B20</li>
+                            <li><strong>Heating Elements:</strong> 5 x USB Charging Carbon Fiber Heating Pads</li>
+                            <li><strong>Temperature Range:</strong> 30-50°C</li>
+                            <li><strong>Power Source:</strong> External USB Power Bank</li>
+                            <li><strong>Connectivity:</strong> Wi-Fi</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="specs-column">
+                        <h3>Heating Pad Placement Strategy</h3>
+                        <ul class="spec-list">
+                            <li>Two heating pads positioned under the front pockets</li>
+                            <li>Four heating pads strategically placed on the lower back region</li>
+                            <li>Placement targets areas with high thermal sensitivity for maximum effectiveness</li>
+                            <li>Configuration optimized for core body temperature management</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Circuit Implementation -->
+            <section class="section" id="circuit-design">
+                <h2 class="section-title">Circuit Design & Implementation</h2>
+                
+                <div style="margin: 30px 0; text-align: center;">
+                    <img src="thermal_schematic.png" alt="Circuit Diagram" style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: var(--card-shadow);">
+                    <p style="margin-top: 15px; color: var(--text-light);">Circuit diagram showing the connections between the ESP32, temperature sensors, and heating elements</p>
+                </div>
+                
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-microchip"></i></div>
+                        <div>
+                            <h3>Control Logic</h3>
+                            <p>Intelligent temperature regulation system that activates/deactivates heating pads based on temperature readings</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-thermometer-half"></i></div>
+                        <div>
+                            <h3>Temperature Sensing</h3>
+                            <p>Precise monitoring with DS18B20 sensors for accurate temperature control</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-fire"></i></div>
+                        <div>
+                            <h3>Carbon Fiber Heating</h3>
+                            <p>Highly efficient heating elements that provide uniform heat distribution</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-battery-full"></i></div>
+                        <div>
+                            <h3>Power Management</h3>
+                            <p>Optimized power consumption for extended battery life from portable power banks</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Development Process -->
+            <section class="section" id="development">
+                <h2 class="section-title">Development Process</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Phase I: Research & Design</h3>
+                            <p>Comprehensive literature review on thermal sensitivity and carbon fiber heating technology</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Phase II: Heating Pad Development</h3>
+                            <p>Creation of custom conductive thread-based heating pads with optimal resistance properties</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Phase III: Circuit Integration</h3>
+                            <p>Development of the control circuit and temperature management system</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Phase IV: Garment Construction</h3>
+                            <p>Integration of heating elements and electronics into the puffer vest design</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <h3>Phase V: Testing & Optimization</h3>
+                            <p>Comprehensive testing of heating performance and temperature regulation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Development images with proper sizing -->
+                <div class="responsive-gallery">
+                    <div class="gallery-item">
+                        <img src="pad_development.png" alt="Heating Pad Development" class="gallery-image">
+                        <p class="gallery-caption">Development of conductive thread-based heating pads</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="integeration.png" alt="Circuit Integration" class="gallery-image">
+                        <p class="gallery-caption">Integration of the control circuit into the jacket</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Testing & Results -->
+            <section class="section" id="testing">
+                <h2 class="section-title">Testing & Results</h2>
+                
+                <div class="responsive-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Time (minutes)</th>
+                                <th>Pad 1 (°C)</th>
+                                <th>Pad 2 (°C)</th>
+                                <th>Pad 3 (°C)</th>
+                                <th>Pad 4 (°C)</th>
+                                <th>Pad 5 (°C)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Base (25°C)</td>
+                                <td>25.9</td>
+                                <td>25.8</td>
+                                <td>25.8</td>
+                                <td>25.6</td>
+                                <td>25.7</td>
+                            </tr>
+                            <tr>
+                                <td>1 minute</td>
+                                <td>45.6</td>
+                                <td>40.5</td>
+                                <td>47.3</td>
+                                <td>47.1</td>
+                                <td>41.4</td>
+                            </tr>
+                            <tr>
+                                <td>3 minutes</td>
+                                <td>45.7</td>
+                                <td>49.2</td>
+                                <td>49.3</td>
+                                <td>49.4</td>
+                                <td>49.3</td>
+                            </tr>
+                            <tr>
+                                <td>5 minutes</td>
+                                <td>44.6</td>
+                                <td>43.3</td>
+                                <td>43.2</td>
+                                <td>42.9</td>
+                                <td>43.3</td>
+                            </tr>
+                            <tr>
+                                <td>7 minutes</td>
+                                <td>43.0</td>
+                                <td>45.0</td>
+                                <td>45.0</td>
+                                <td>43.0</td>
+                                <td>49.0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p class="test-summary">Testing revealed rapid temperature increase (within 1 minute) and excellent stabilization behavior, with temperatures maintaining between 42-49°C after 7 minutes. This consistent temperature range provides optimal comfort without risk of overheating.</p>
+            </section>
+            
+            <!-- Key Features -->
+            <section class="section" id="features">
+                <h2 class="section-title">Key Features</h2>
+                
+                <div class="feature-grid-large">
+                    <div class="feature-item-large">
+                        <div class="feature-icon-large"><i class="fas fa-bolt"></i></div>
+                        <h3>USB-Powered Design</h3>
+                        <p>Compatible with standard power banks for portable heating anywhere</p>
+                    </div>
+                    <div class="feature-item-large">
+                        <div class="feature-icon-large"><i class="fas fa-brain"></i></div>
+                        <h3>Intelligent Temperature Control</h3>
+                        <p>Automated system that maintains optimal temperature without manual adjustments</p>
+                    </div>
+                    <div class="feature-item-large">
+                        <div class="feature-icon-large"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Smartphone Connectivity</h3>
+                        <p>Wi-Fi enabled control system for temperature adjustment via mobile application</p>
+                    </div>
+                    <div class="feature-item-large">
+                        <div class="feature-icon-large"><i class="fas fa-feather-alt"></i></div>
+                        <h3>Lightweight Construction</h3>
+                        <p>Breathable and comfortable design that doesn't compromise mobility</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Video Demo Section -->
+            <section class="section" id="demonstration">
+                <h2 class="section-title">System Demonstration</h2>
+                
+                <div class="responsive-video-container">
+                    <video controls loop autoplay muted poster="thermal_video_thumbnail.jpg" class="responsive-video">
+                        <source src="thermal.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="video-caption">Demonstration of the Smart Thermal Jacket's heating capabilities and temperature control</p>
+            </section>
+            
+            <!-- Applications & Future Development -->
+            <section class="section" id="applications">
+                <h2 class="section-title">Applications & Future Development</h2>
+                
+                <p>The Smart Thermal Heating Jacket has numerous potential applications and opportunities for future development:</p>
+                
+                <div class="applications-grid">
+                    <div class="application-item">
+                        <h3>Outdoor Activities</h3>
+                        <p>Enhanced comfort for hiking, camping, and winter sports</p>
+                    </div>
+                    <div class="application-item">
+                        <h3>Industrial Applications</h3>
+                        <p>Improved worker comfort in cold storage facilities and outdoor work environments</p>
+                    </div>
+                    <div class="application-item">
+                        <h3>Medical Applications</h3>
+                        <p>Therapeutic heating for patients with circulation issues or cold sensitivity</p>
+                    </div>
+                    <div class="application-item">
+                        <h3>Energy Efficiency</h3>
+                        <p>Reducing the need for centralized heating in buildings by providing personalized warmth</p>
+                    </div>
+                </div>
+                
+                <div class="future-development">
+                    <h3>Future Development Opportunities</h3>
+                    <ul>
+                        <li>Integration with smartphone apps for advanced temperature customization and scheduling</li>
+                        <li>Implementation of machine learning algorithms to adapt to user preferences over time</li>
+                        <li>Development of improved power storage solutions for extended usage time</li>
+                        <li>Incorporation of additional smart features like activity tracking and posture monitoring</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Bill of Materials -->
+            <section class="section" id="materials">
+                <h2 class="section-title">Bill of Materials</h2>
+                
+                <div class="responsive-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Quantity</th>
+                                <th>Cost (₹)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>USB Charging Carbon Fiber Heating Pads</td>
+                                <td>5</td>
+                                <td>1,913.16</td>
+                            </tr>
+                            <tr>
+                                <td>ESP32 NodeMCU</td>
+                                <td>1</td>
+                                <td>455.00</td>
+                            </tr>
+                            <tr>
+                                <td>DS18B20 Temperature Sensors</td>
+                                <td>2</td>
+                                <td>350.00</td>
+                            </tr>
+                            <tr>
+                                <td>Shell Fabric (100% Polyester)</td>
+                                <td>4.5 m</td>
+                                <td>540.00</td>
+                            </tr>
+                            <tr>
+                                <td>Fiberglass Insulation</td>
+                                <td>2 m</td>
+                                <td>300.00</td>
+                            </tr>
+                            <tr>
+                                <td>Electronic Components & Materials</td>
+                                <td>Various</td>
+                                <td>830.00</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="2"><strong>Total Cost</strong></td>
+                                <td><strong>₹4,388.16</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Technologies Used -->
+            <section class="section" id="technologies">
+                <h2 class="section-title">Technologies Used</h2>
+                
+                <div class="tag-list">
+                    <span class="tag">IoT</span>
+                    <span class="tag">ESP32</span>
+                    <span class="tag">Carbon Fiber Heating</span>
+                    <span class="tag">Temperature Sensing</span>
+                    <span class="tag">Wi-Fi Connectivity</span>
+                    <span class="tag">Thermal Engineering</span>
+                    <span class="tag">Conductive Thread</span>
+                    <span class="tag">Arduino IDE</span>
+                    <span class="tag">Smart Textiles</span>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>About</h3>
+                    <p>Tech enthusiast specializing in IoT integration and automation for the textile manufacturing industry.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#technical-design">Technical Design</a></li>
+                        <li><a href="#development">Development</a></li>
+                        <li><a href="#features">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Projects</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Smart Thermal Jacket</a></li>
+                        <li><a href="#">Gesture-Controlled Robotic Arm</a></li>
+                        <li><a href="#">Warehouse Layout Design</a></li>
+                        <li><a href="#">Color Segregation System</a></li>
+                        <li><a href="#">RFID Canteen System</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:abhay.ajith@nift.ac.in">abhay.ajith@nift.ac.in</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+917845315759">+91 7845315759</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Mumbai, India</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; 2025 Abhay Ajith. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Scripts -->
+    <script>
+        // Add back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        // Show button when user scrolls down
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        // Scroll to top when clicked
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Offset for header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
